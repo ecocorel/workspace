@@ -15,10 +15,10 @@ var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function(url){
+var getJSONData = function(PRODUCTS_URL){
     var result = {};
     showSpinner();
-    return fetch(url)
+    return fetch(PRODUCTS_URL)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -38,6 +38,10 @@ var getJSONData = function(url){
         hideSpinner();
         return result;
     });
+}
+function logout(){
+  localStorage.clear();
+  location.href="login.html";
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
